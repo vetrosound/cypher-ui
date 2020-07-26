@@ -14,4 +14,4 @@ RUN yarn install && yarn build:prod
 # then we copy only the static web content needed for the app
 FROM nginx:stable
 
-COPY dist/cypher-ui/ /usr/share/nginx/html
+COPY --from=0 /tmp/cypher-ui/dist/cypher-ui/ /usr/share/nginx/html

@@ -16,7 +16,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test` to execute the unit tests
 
 ## Running end-to-end tests
 
@@ -27,7 +27,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 `docker build --tag cypher-ui .`
 
 Cleanup intermediate images
-`docker image prune --filter dangling=true`
+`docker image prune -f`
 
 ## Running the docker image
 
