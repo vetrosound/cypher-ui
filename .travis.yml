@@ -25,13 +25,22 @@ branches:
 install:
   - yarn
 
+services:
+  - docker
+
 script:
   - yarn lint
   - yarn test
-  - yarn build:prod
+  - docker-compose up --detach --build
   - yarn cy:verify
   - yarn cy:run
   - sonar-scanner
+
+deploy:
+  provider: script
+  script: bash scripts/docker-push.sh
+  on:
+    branch: master
 
 notifications:
   email: false
@@ -40,3 +49,8 @@ notifications:
     on_failure: change
     rooms:
       - secure: J1g8j4MdBZoAb5JZ3AfiaDpj3FCZMItrmYshJHRQ8kYowEVHZYeRFrIaRegRFCLUJLKsJ6a35VyB6GzYwAdKx97UKS5bT5TMAfvNj+6arZkZMxKUahdtO4dYZRufXtl36FcbYkNZ+t4gu6e9P0DhymXHwS00YPZjF++C4RiZxeqYbkrfzd/BOJa93vKmwNNk4vaDaevFtDE/KIEp/LHJSgTKLTIGlclw9etlvhjFzPLyCNgJoyZKtvC4l8k8WMUamvqq+qkelElhNw4Jd8bNk9y7INZmiYjNO1w118sKl5FxjG2oJjbDU4NA5QwXn1aXvfHN5MqmwVzrdkCmAV5z0MO3Yo979uyx5A/BPBymbWUsl97TadpKL3MVHYISIde+TQnyHEADjxWEnkP0AYHVmBdVzXOe+3YDGub3wnuOzjtpUN7coX7jGSfUUnLUncLP3CwGBW/2L9MF9iNPSUZMEpW1WGZTc7gHBnFqkzmqgb8drTUa8NAk+GwBVx2sgd4RRc93Db90Crh6+rSPmgfCrm70OzCqL2v0sn5BdAkyLeF+fP5WnjHKJvqRG269kOnPvcGGMJmEgMGvBbNwGPuWfB83+B6GCt8ixGiZzfiiHte6fsaHcPzgF9QxiX7RpFaN5EkB1IXhTGXKXIoQMMyOukB8bmNW6QLQNjCesbLnlsg=
+
+env:
+  global:
+    - secure: KE/yuf6klMX2bV6drwMyu+3vcyiuWz7vyu0jZ0JA+BRfZFtPV94bzTPxi/DM3m6JQtnZuC0G9IJPjFdUiZduxK5TN86D2EhHrUwxNKPOBulJ5+zwNTG55PAPLPY+IkCiLmoxD92UcEnc4YFDOA252MeYB4gJleUMw6gkuzXXJMi7Sbgw7cvl6tv1c6LevBZ6iiK+CUeh3r3NxVi+VWtQPX/70YWsUkN2/pBN0TiXpbvLwp+dCYEtlX+fjbfRgp9LXffTgbA/VVon2hE1An+Xm8rPATKb0UyXOy6caPTcjjjmTr3ZwHY0k27O7gMmQlBkS/8FjfaU6bUSK5HxDSautpX6TQTeAlk35ZYjDtryzT3ofT4n7siPVOcz1bpwlb8725KHSbEImuCSjO+4KNZgMpw+qXp+wtMUqhS5X2YshELOkZaV8LABGaKy/B7Vwg+kIGry1J41ocV1gZ+sp1PkHUMxFsPwyhyUFbv5AXi+zRcJ42oJiUSMx5+JkSYB5BFvgbfDNRF5Prgwy1hrrxe+gukqW4q3pgTDhGbnqpDH6wq2561Gi0uZaF5IbOGXZY/23vehzk1LjEjSW0wnTfyFIsEAfHS0bp8o8KwIN8cndqCoXxvTiQdmzXJeA4P9aj4taYqftO8L77kKEW5eQhG4UMwG92mKV80ARksmFC7wYqY=
+    - secure: RdgGrjBymKiAVxMQ1asGfeclo8Ke0pNxOo4tZzfjjlTHi5T9IXY7RuAGwz7ng57nebRtjCpiFKE6noTOuDqlWVrNGLzR+BZovrz2yaxHEnt4GLnfK7Oj/iPj8P2sdb9Pevjj1NiYOFJBrkwurlfDQUvcxw69V60zZodUz+9Gg1llDptEEnpdHHQwn0lNcUGpnUBLO24YG24SePrpf/mI8IkHYYrGcwYEsYPKA24aAWz84IMRHRoRZhm5bEVIC71ND9ZzwYYN62pSR/6wBQ4EaWWgftUmit010la4f9zdlAoTSJg7kWVPe6DC/VquIodE/tsLKR1fadQjcMoNhrzsdtwG4B1kuq7Hl/6lRSa5y9u1e3u2NSt9C2xcDqDv4YCFuix+s8CC6mkBMhRStHdPSclkVKgHwqAJDKS0QS8cv7zjvWYy/hJqkp6LgQoTkLQofm0zX5iO0uRkDycwS9veynDd9eU4s5uo1GK8RFCAcpWl3eoj/yOijjVWTebGXhIEb5wbktZTKYiYDP7Dh2CIparlWTYJpMM6vc9oNvSFCh24mQ7LDkh/Tvpu3knCCRY8nojSAp577IvJbo5tkJVIo5BEBurGfE0tMTpChnwOtOHjuPBG53r/kcYLO24Sdwft8jZt/ql0MM0UOoj0Ktnj1jFKnD1dheMoZDDwKyC406Y=

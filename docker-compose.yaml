@@ -1,0 +1,12 @@
+version: "3.3"
+services:
+  cypher_ui:
+    build:
+      context: .
+      cache_from:
+        - node:lts
+        - nginx:stable
+    image: vetrosound/cypher-ui:latest
+    container_name: cypher-ui
+    ports:
+      - "8080:80"

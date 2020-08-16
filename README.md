@@ -22,18 +22,14 @@ Run `ng test` to execute the unit tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Building a docker image
+## Building and running the docker image
 
-`docker build --tag cypher-ui .`
+`docker-compose up -d`
 
 Cleanup intermediate images
 `docker image prune -f`
 
-## Running the docker image
-
-`docker run --detach --name cypher-ui --publish 8080:80 cypher-ui`
-
-Then visiting `http://localhost:8080` in a browser should display the app.
+Then visit `http://localhost:8080` in a browser.
 
 ## Further help
 

@@ -8,7 +8,7 @@ COPY angular.json ./
 COPY tsconfig.app.json ./
 COPY tsconfig.json ./
 COPY src ./src
-RUN yarn install && yarn build:prod
+RUN yarn install --frozen-lockfile && yarn build:prod
 
 # use docker multistage build to start with a fresh image
 # then we copy only the static web content needed for the app
