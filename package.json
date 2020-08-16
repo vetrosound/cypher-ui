@@ -37,6 +37,7 @@
     "cypress": "^4.11.0",
     "http-server": "^0.12.3",
     "jest": "^26.1.0",
+    "jest-sonar-reporter": "^2.0.0",
     "start-server-and-test": "^1.11.2",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",

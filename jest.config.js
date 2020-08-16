@@ -4,6 +4,7 @@ const { compilerOptions } = require('./tsconfig');
 module.exports = {
   roots: ['src/'],
   collectCoverage: true,
-  coverageReporters: ['html'],
-  coverageDirectory: 'coverage/cypher-ui'
+  coverageReporters: ['html','lcov'],
+  coverageDirectory: 'coverage/cypher-ui',
+  testResultsProcessor: "jest-sonar-reporter"
 };
