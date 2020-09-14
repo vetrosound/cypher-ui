@@ -10,10 +10,20 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import { ChatComponent } from './chat/chat.component';
+import { PerformerQueueComponent } from './performer-queue/performer-queue.component';
+import { UserIconComponent } from './user-icon/user-icon.component';
+import { UsersListComponent } from './users-list/users-list.component';
+import { VoteBannerComponent } from './vote-banner/vote-banner.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChatComponent,
+    PerformerQueueComponent,
+    UserIconComponent,
+    UsersListComponent,
+    VoteBannerComponent
   ],
   imports: [
     BrowserModule,
