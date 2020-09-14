@@ -105,6 +105,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "cypher-ui"
+    }
+  },
+  "defaultProject": "cypher-ui",
+  "cli": {
+    "analytics": false
+  }
 }
