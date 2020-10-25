@@ -109,6 +109,7 @@
   },
   "defaultProject": "cypher-ui",
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "defaultCollection": "@ngrx/schematics"
   }
 }

@@ -19,6 +19,12 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { VoteBannerComponent } from './vote-banner/vote-banner.component';
 import { RoomComponent } from './room/room.component';
 import { CurrentTrackComponent } from './current-track/current-track.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './core/store/reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
 
 @NgModule({
   declarations: [
@@ -41,6 +47,9 @@ import { CurrentTrackComponent } from './current-track/current-track.component';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    EffectsModule.forRoot([AppEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersListComponent implements OnInit {
 
+  users: any[];
   constructor() { }
 
   ngOnInit(): void {
+    this.users = [{}, {}, {}];
   }
 
 }

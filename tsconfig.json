@@ -21,7 +21,8 @@
       "node",
       "cypress"
     ],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "strictPropertyInitialization": false
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
