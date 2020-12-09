@@ -22,7 +22,8 @@
       "cypress"
     ],
     "esModuleInterop": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "resolveJsonModule": true 
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
