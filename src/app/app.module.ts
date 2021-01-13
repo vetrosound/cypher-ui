@@ -20,7 +20,7 @@ import { VoteBannerComponent } from './vote-banner/vote-banner.component';
 import { RoomComponent } from './room/room.component';
 import { CurrentTrackComponent } from './current-track/current-track.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './core/store/reducers';
+import { metaReducers } from './core/store/reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
@@ -48,7 +48,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot({ metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AppEffects]),
     HttpClientModule,
