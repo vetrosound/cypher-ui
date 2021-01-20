@@ -13,15 +13,14 @@ import { State, loadUsersFromUsersList } from '../store/users';
 export class UsersListService {
 
   constructor(private http: HttpClient, private store: Store<State>) { }
-  getUsers() {
-    this.fetchUsersMock$().subscribe();
-  }
 
   fetchUsers$(): Observable<User[]> {
     return this.http.get('www.wahterurl').pipe(map(() => []));
   }
 
   fetchUsersMock$(): Observable<User[]>{
+    // TODO Why is this happening twice? Need to fix
+    console.log('fetchUsersMock called');
     return of(mockData as User[]);
   }
 
