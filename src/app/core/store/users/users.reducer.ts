@@ -11,8 +11,8 @@ export const initialState: State = {
 
 const userReducer = createReducer(
   initialState,
-  on(UserActions.loadUsersFromUsersList, (state, ) => ({ ...state})),
-  on(UserActions.nameUserTestAction, (state, action) => ({ ...state, name: action.name})),
+  on(UserActions.LoadUsersFromUsersList, (state, ) => ({ ...state})),
+  on(UserActions.NameUserTestAction, (state, action) => ({ ...state, name: action.name})),
 );
 
 export function reducer(state: State | undefined, action: Action) {

@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import * as mockData from './users-list.mock.json';
 import { User } from '../../models/user';
 import { Store } from '@ngrx/store';
-import { State, loadUsersFromUsersList } from '../store/users';
+import { State, LoadUsersFromUsersList } from '../store/users';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +25,7 @@ export class UsersListService {
   }
 
   loadUsers() {
-    this.store.dispatch(loadUsersFromUsersList());
+    this.store.dispatch(LoadUsersFromUsersList());
   }
 
 }
