@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/vetrosound/cypher-ui.svg?branch=main)](https://travis-ci.com/vetrosound/cypher-ui)
+
 # CypherUi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
