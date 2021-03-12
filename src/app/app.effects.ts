@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, Effect } from '@ngrx/effects';
+import { Actions, createEffect } from '@ngrx/effects';
 import { ofType } from '@ngrx/effects';
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
@@ -15,7 +15,6 @@ export class AppEffects {
     () => this.actions$.pipe(
       ofType(LoadUsersFromUsersList),
       switchMap(() => this.userService.fetchUsersMock$()),
-      // TODO: Need catchError here incase of failure
       map((res) => LoadUsersFromUsersListSuccess({ users: res })),
       catchError(() => of(LoadUsersFromUsersListFail()))
     )

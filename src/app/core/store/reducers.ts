@@ -1,15 +1,10 @@
 import {
-  ActionReducer,
   ActionReducerMap,
-  createFeatureSelector,
-  createSelector,
-  MetaReducer
 } from '@ngrx/store';
-import { environment } from '../../../environments/environment';
 import * as Users from './users';
 
 export interface AppState {
-  user: Users.State;
+  users: Users.State;
 }
 
 /* Not sure how to implement this 'MetaReducer'
@@ -25,5 +20,5 @@ export const metaReducers: MetaReducer<Users.State>[] = [debug]; */
 
 export const userReducer = Users.reducer;
 export const appReducers: ActionReducerMap<AppState, any> = {
-  user: userReducer
+  users: userReducer
 };
